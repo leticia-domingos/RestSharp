@@ -39,20 +39,20 @@ namespace Tests.Functional.Users
         {
             // Arrange
             var client = GetRestClient();
-            var request = new RestRequest(Endpoints.Users, Method.Get); // O header x-api-key já é adicionado no GetRestClient do BaseTest
+            var request = new RestRequest(Endpoints.Users, Method.Get); 
 
             // Act
             var response = client.Execute(request);
 
             // Assert
-            response.StatusCode.Should().Be(HttpStatusCode.OK); // Verifica se o status code é 200 OK
+            response.StatusCode.Should().Be(HttpStatusCode.OK); 
             
-            var usersResponse = JsonSerializer.Deserialize<UsersResponse>(response.Content ?? string.Empty); // ?? diz que se response.Content for nulo, use string.Empty para evitar erros de desserialização
-            usersResponse.Should().NotBeNull(); // Verifica se a desserialização foi bem-sucedida
-            usersResponse.Data.Should().NotBeNull(); // Verifica se a propriedade Data retorna usuários
-            usersResponse.Data.Should().NotBeEmpty(); // Verifica se a lista de usuários não está vazia
+            var usersResponse = JsonSerializer.Deserialize<UsersResponse>(response.Content ?? string.Empty); 
+            usersResponse.Should().NotBeNull(); 
+            usersResponse.Data.Should().NotBeNull(); 
+            usersResponse.Data.Should().NotBeEmpty(); 
 
-            foreach(var user in usersResponse.Data) // Validações para cada usuário. Equivalente a um loop foreach
+            foreach(var user in usersResponse.Data)
             {
                 user.Id.Should().BeGreaterThan(0);
                 user.Email.Should().NotBeNullOrWhiteSpace();
@@ -74,7 +74,7 @@ namespace Tests.Functional.Users
             var response = client.Execute(request);
 
             // Assert
-            var usersResponse = JsonSerializer.Deserialize<UsersResponse>(response.Content ?? string.Empty); // ?? diz que se response.Content for nulo, use string.Empty para evitar erros de desserialização
+            var usersResponse = JsonSerializer.Deserialize<UsersResponse>(response.Content ?? string.Empty); 
 
             usersResponse.Should().NotBeNull();
             usersResponse.Data.Should().NotBeNull();
