@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("api-automation-restsharp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f62fcafe457b089ea52cb44aecc09788e7317e49")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+07ba20946be87539bbbc46e6c478e109796be175")]
 [assembly: System.Reflection.AssemblyProductAttribute("api-automation-restsharp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("api-automation-restsharp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
