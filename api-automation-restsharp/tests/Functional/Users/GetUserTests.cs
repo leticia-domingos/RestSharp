@@ -23,7 +23,7 @@ namespace Tests.Functional.Users
             // Assert
             response.StatusCode.Should().Be(HttpStatusCode.OK); // Verifica se o status code é 200 OK
 
-            var usersResponse = JsonSerializer.Deserialize<UsersResponse>(response.Content);
+            var usersResponse = JsonSerializer.Deserialize<UsersResponse>(response.Content ?? string.Empty); // ?? diz que se response.Content for nulo, use string.Empty para evitar erros de desserialização
 
             usersResponse.Should().NotBeNull(); // Verifica se a desserialização foi bem-sucedida
             usersResponse.Page.Should().BeGreaterThan(0);
@@ -45,9 +45,9 @@ namespace Tests.Functional.Users
             var response = client.Execute(request);
 
             // Assert
-            var usersResponse = JsonSerializer.Deserialize<UsersResponse>(response.Content);
-
             response.StatusCode.Should().Be(HttpStatusCode.OK); // Verifica se o status code é 200 OK
+            
+            var usersResponse = JsonSerializer.Deserialize<UsersResponse>(response.Content ?? string.Empty); // ?? diz que se response.Content for nulo, use string.Empty para evitar erros de desserialização
             usersResponse.Should().NotBeNull(); // Verifica se a desserialização foi bem-sucedida
             usersResponse.Data.Should().NotBeNull(); // Verifica se a propriedade Data retorna usuários
             usersResponse.Data.Should().NotBeEmpty(); // Verifica se a lista de usuários não está vazia
@@ -74,7 +74,7 @@ namespace Tests.Functional.Users
             var response = client.Execute(request);
 
             // Assert
-            var usersResponse = JsonSerializer.Deserialize<UsersResponse>(response.Content);
+            var usersResponse = JsonSerializer.Deserialize<UsersResponse>(response.Content ?? string.Empty); // ?? diz que se response.Content for nulo, use string.Empty para evitar erros de desserialização
 
             usersResponse.Should().NotBeNull();
             usersResponse.Data.Should().NotBeNull();
