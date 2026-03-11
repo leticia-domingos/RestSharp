@@ -1,6 +1,6 @@
 # API Automation RestSharp
 
-Framework de automação de testes de API desenvolvido em C# para validação de endpoints REST.  
+Este projeto é um Framework de automação de testes de API desenvolvido em C# para validação de endpoints REST.  
 O projeto utiliza RestSharp para requisições HTTP, xUnit como framework de testes e FluentAssertions para validações mais legíveis.
 
 
